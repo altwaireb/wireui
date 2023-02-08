@@ -17,7 +17,7 @@ to discuss and review your code.
 To clone the project source and install its dependencies, run:
 
 ```shell
-git clone git@github.com:wireui/wireui.git
+git clone git@github.com:altwaireb/wireui.git
 cd wireui
 
 composer install
@@ -50,5 +50,5 @@ project and add to the composer.json:
 ```
 
 After added this configuration you can install the wireui project as a local dependency
-using ` composer require wireui/wireui `, so when you change the wireui source code
+using ` composer require altwaireb/wireui `, so when you change the wireui source code
 it will be reflected on your laravel package.
