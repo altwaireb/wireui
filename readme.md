@@ -62,9 +62,11 @@ Sometimes you need to pass extra html attributes to script tag, like the nonce a
 @wireUiScripts(['nonce': 'csp-token', 'foo' => true])
 ```
 
-3. Add the following settings to your Tailwindcss config file, **tailwind.config.js**:
+3. Add the following settings to your Tailwindcss config file, `tailwind.config.js`:
 
 ```js 
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     
     presets: [
