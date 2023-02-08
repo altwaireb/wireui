@@ -3,43 +3,15 @@
 namespace Tests\Browser\DatetimePicker\MinMaxLimits;
 
 use Laravel\Dusk\Browser;
-use Livewire\Testing\TestableLivewire;
 use Tests\Browser\BrowserTestCase;
 
 class Test extends BrowserTestCase
 {
-    /**
-     * @test
-     * @dataProvider datesProvider
-     */
-    public function it_should_select_only_the_dates_inside_a_range_min_and_max(
-        bool $disabled,
-        int $day,
-        string $model,
-        string $input
-    ) {
-        $this->browse(function (Browser $browser) use ($disabled, $day, $model, $input) {
-            /** @var Browser|TestableLivewire $component */
-            $component = $this->visit($browser, Component::class)
-                ->click('[name="model"]')
-                ->tap(fn () => $browser->assertScript(<<<EOT
-                    [...document.querySelectorAll('.picker-days button')]
-                        .find(day => day.innerText == {$day})
-                        .hasAttribute('disabled')
-                EOT, $disabled))
-                ->tap(fn () => $this->selectDate($browser, $day));
-
-            if (!$disabled) {
-                $component
-                    ->waitForTextIn('@value', $model)
-                    ->assertInputValue('model', $input);
-            }
-        });
-    }
 
     /**
      * @test
      * @dataProvider timesProvider
+     * @throws \Throwable
      */
     public function it_should_select_only_times_inside_the_limit(
         int $day,

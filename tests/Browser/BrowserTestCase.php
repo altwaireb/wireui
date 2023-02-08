@@ -23,7 +23,7 @@ class BrowserTestCase extends Dusk\TestCase
 {
     use SupportsSafari;
 
-    public static $useSafari = false;
+    public static bool $useSafari = false;
 
     protected function setUp(): void
     {
@@ -112,15 +112,15 @@ class BrowserTestCase extends Dusk\TestCase
     }
 
     // We don't want to deal with screenshots or console logs.
-    protected function storeConsoleLogsFor($browsers)
+    protected function storeConsoleLogsFor($browsers): void
     {
     }
 
-    protected function captureFailuresFor($browsers)
+    protected function captureFailuresFor($browsers): void
     {
     }
 
-    public function makeACleanSlate()
+    public function makeACleanSlate(): void
     {
         Artisan::call('view:clear');
 
@@ -129,7 +129,7 @@ class BrowserTestCase extends Dusk\TestCase
         File::delete(app()->bootstrapPath('cache/livewire-components.php'));
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LivewireServiceProvider::class,
@@ -137,7 +137,7 @@ class BrowserTestCase extends Dusk\TestCase
         ];
     }
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         $app['config']->set('view.paths', [
             __DIR__ . '/views',
@@ -152,17 +152,17 @@ class BrowserTestCase extends Dusk\TestCase
         ]);
     }
 
-    protected function resolveApplicationHttpKernel($app)
+    protected function resolveApplicationHttpKernel($app): void
     {
         $app->singleton(\Illuminate\Contracts\Http\Kernel::class, HttpKernel::class);
     }
 
-    protected function livewireClassesPath($path = '')
+    protected function livewireClassesPath($path = ''): string
     {
         return app_path('Http/Livewire' . ($path ? '/' . $path : ''));
     }
 
-    protected function livewireViewsPath($path = '')
+    protected function livewireViewsPath($path = ''): string
     {
         return resource_path('views') . '/livewire' . ($path ? '/' . $path : '');
     }
@@ -190,13 +190,7 @@ class BrowserTestCase extends Dusk\TestCase
         parent::browse(function (...$browsers) use ($callback) {
             try {
                 $callback(...$browsers);
-            } catch (Exception $e) {
-                if (Dusk\Options::hasUI()) {
-                    $this->breakIntoATinkerShell($browsers, $e);
-                }
-
-                throw $e;
-            } catch (Throwable $e) {
+            } catch (Exception|Throwable $e) {
                 if (Dusk\Options::hasUI()) {
                     $this->breakIntoATinkerShell($browsers, $e);
                 }
@@ -206,7 +200,7 @@ class BrowserTestCase extends Dusk\TestCase
         });
     }
 
-    public function breakIntoATinkerShell($browsers, $e)
+    public function breakIntoATinkerShell($browsers, $e): array
     {
         $sh = new Shell();
 
