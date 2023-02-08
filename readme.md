@@ -35,7 +35,7 @@ languages.
 1. Run the following command to add WireUI to your project:
 
 ```sh
-   composer require altwaireb/wireui
+composer require altwaireb/wireui
 ```
 
 2. Add the WireUI tag above Alpinejs script tag in your page layout:
@@ -46,20 +46,20 @@ languages.
         <wireui:scripts />
         <script src="//unpkg.com/alpinejs" defer></script>
     </head>
-</html>
-
 
 Alternatively, you can use the equivalent Blade directive:
 
 ```html
-...
-@wireUiScripts
-<script src="//unpkg.com/alpinejs" defer></script>
-...
-
-Sometimes you need to pass extra html attributes to script tag, like the nonce attribute
-@wireUiScripts(['nonce': 'csp-token'])
-@wireUiScripts(['nonce': 'csp-token', 'foo' => true])
+<html>
+<head>
+   ...
+   @wireUiScripts
+   <script src="//unpkg.com/alpinejs" defer></script>
+   ...
+   
+   Sometimes you need to pass extra html attributes to script tag, like the nonce attribute 
+   @wireUiScripts(['nonce': 'csp-token'])
+   @wireUiScripts(['nonce': 'csp-token', 'foo' => true])
 ```
 
 3. Add the following settings to your Tailwindcss config file, `tailwind.config.js`:
