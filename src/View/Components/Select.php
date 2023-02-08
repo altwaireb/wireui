@@ -7,6 +7,9 @@ use Illuminate\Support\Collection;
 
 class Select extends NativeSelect
 {
+    /**
+     * @throws Exception
+     */
     public function __construct(
         public bool $clearable = true,
         public bool $searchable = true,
@@ -67,6 +70,9 @@ class Select extends NativeSelect
         data_set($this->asyncData, 'params', data_get($this->asyncData, 'params', []));
     }
 
+    /**
+     * @throws Exception
+     */
     private function validateConfig(): void
     {
         if ($this->options->isNotEmpty() && $this->asyncData['api']) {

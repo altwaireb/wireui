@@ -8,7 +8,10 @@ use WireUi\View\Components\Select;
 class SelectTest extends UnitTestCase
 {
     /** @test */
-    public function It_should_throw_an_error_if_async_data_and_options_is_set_together()
+    /**
+     * @throws
+     */
+    public function It_should_throw_an_error_if_async_data_and_options_is_set_together(): void
     {
         $this->expectErrorMessage('The {async-data} attribute cannot be used with {options} attribute.');
 
