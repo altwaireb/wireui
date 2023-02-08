@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase;
 use ReflectionClass;
+use ReflectionException;
 use WireUi\Providers\WireUiServiceProvider;
 
 class UnitTestCase extends TestCase
@@ -33,7 +34,9 @@ class UnitTestCase extends TestCase
         ];
     }
 
-    /** Call protected/private method of a class */
+    /** Call protected/private method of a class
+     * @throws ReflectionException
+     */
     public function invokeMethod(mixed $object, string $method, array $parameters = [])
     {
         $reflection = new ReflectionClass(get_class($object));
