@@ -25,7 +25,7 @@ class UnitTestCase extends TestCase
         $app->setBasePath(__DIR__ . '/../..');
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LivewireServiceProvider::class,

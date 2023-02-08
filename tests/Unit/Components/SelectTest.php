@@ -24,8 +24,8 @@ class SelectTest extends UnitTestCase
         ];
 
         $select = new Select(
-            optionLabel: 'name',
             optionValue: 'value',
+            optionLabel: 'name',
             options: $options
         );
 
@@ -59,7 +59,7 @@ class SelectTest extends UnitTestCase
     {
         $options = ['Option 1', 'Option 2'];
 
-        $select = new Select(options: $options, optionKeyValue: true);
+        $select = new Select(optionKeyValue: true, options: $options);
 
         $this->assertEquals(
             [
@@ -80,8 +80,8 @@ class SelectTest extends UnitTestCase
         ];
 
         $select = new Select(
-            optionLabel: 'name',
             optionValue: 'value',
+            optionLabel: 'name',
             options: $options
         );
 
@@ -99,8 +99,8 @@ class SelectTest extends UnitTestCase
     public function it_should_parse_the_description_by_default_key()
     {
         $select = new Select(
-            optionLabel: 'name',
             optionValue: 'value',
+            optionLabel: 'name',
             options: [
                 ['name' => 'WireUI', 'value' => 'wireui', 'description' => 'The wireui is amazing'],
             ]
@@ -122,8 +122,8 @@ class SelectTest extends UnitTestCase
     public function it_should_parse_the_description_by_custom_description_key()
     {
         $select = new Select(
-            optionLabel: 'name',
             optionValue: 'value',
+            optionLabel: 'name',
             optionDescription: 'info',
             options: [
                 ['name' => 'WireUI', 'value' => 'wireui', 'info' => 'The wireui is amazing'],
