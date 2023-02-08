@@ -28,7 +28,7 @@ class ConfirmDialogTest extends BrowserTestCase
                 ->waitUsing(7, 100, fn () => $browser->assertSeeIn('@events', 'accepted, rejected'));
         });
     }
-    
+
     private function showConfirmDialog(Browser $browser): void
     {
         $browser->script("
