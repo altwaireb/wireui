@@ -17,7 +17,7 @@
         <x-dynamic-component
             :component="WireUi::component('icon')"
             :name="$icon"
-            class="{{ $iconSize }} shrink-0"
+            class="{{ $iconSize }} shrink-0 rtl:order-last"
         />
     @endif
 
@@ -27,7 +27,7 @@
         <x-dynamic-component
             :component="WireUi::component('icon')"
             :name="$rightIcon"
-            class="{{ $iconSize }} shrink-0"
+            class="{{ $iconSize }} shrink-0 rtl:order-first"
             :wire:loading.remove="(bool) $spinner"
         />
     @endif

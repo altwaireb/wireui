@@ -58,7 +58,7 @@
             :name="$name"
             {{ $attributes
                 ->except(['class'])
-                ->class(['pl-8' => $icon])
+                ->class(['ltr:pl-8 rtl:pr-8' => $icon])
                 ->whereDoesntStartWith(['wire:model', 'type', 'wire:key'])
             }}>
             <x-slot name="prepend">
@@ -68,16 +68,16 @@
                 }">
                     <template x-if="!config.multiselect">
                         <div @class([
-                                'absolute left-0 inset-y-0 w-[calc(100%-3.5rem)] flex items-center',
-                                'pl-2.5' =>  $icon,
-                                'pl-3.5' => !$icon,
+                                'absolute ltr:left-0 rtl:right-0 inset-y-0 w-[calc(100%-3.5rem)] flex items-center',
+                                'ltr:pl-2.5 rtl:pr-2.5' =>  $icon,
+                                'ltr:pl-3.5 rtl:pr-3.5' => !$icon,
                             ])
                             x-on:click="toggle">
                             @if ($icon)
                                 <x-dynamic-component
                                     :component="WireUi::component('icon')"
                                     :name="$icon"
-                                    class="h-5 w-5 mr-1 text-gray-400 dark:text-gray-600"
+                                    class="h-5 w-5 ltr:mr-1 rtl:ml-1 text-gray-400 dark:text-gray-600"
                                 />
                             @endif
 
@@ -90,7 +90,7 @@
                     </template>
 
                     <template x-if="config.multiselect">
-                        <div class="absolute left-0 inset-y-0 pl-3 pr-14 w-full flex items-center overflow-hidden" x-on:click="toggle">
+                        <div class="absolute ltr:left-0 rtl:right-0 inset-y-0 ltr:pl-3 rtl:pr-3 ltr:pr-14 rtl:pl-14 w-full flex items-center overflow-hidden" x-on:click="toggle">
                             <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar">
                                 @if ($icon)
                                     <x-dynamic-component
@@ -111,7 +111,7 @@
                                 <div wire:ignore class="flex flex-nowrap items-center gap-1">
                                     <template x-for="(option, index) in selectedOptions" :key="`selected.${index}`">
                                         <span class="
-                                                inline-flex items-center py-0.5 pl-2 pr-0.5 rounded-full text-xs font-medium
+                                                inline-flex items-center py-0.5 ltr:pl-2 rtl:pr-2 ltr:pr-0.5 rtl:pl-0.5 rounded-full text-xs font-medium
                                                 border border-secondary-200 shadow-sm bg-secondary-100 text-secondary-700
                                                 dark:bg-secondary-700 dark:text-secondary-400 dark:border-none
                                             ">
@@ -138,7 +138,7 @@
             </x-slot>
 
             <x-slot name="append">
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 gap-x-2">
+                <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-2 rtl:pl-2 gap-x-2">
                     @if ($clearable && !$readonly && !$disabled)
                         <button
                             x-show="!isEmpty()"
@@ -228,7 +228,7 @@
             </ul>
 
             @unless ($hideEmptyMessage)
-                <div class="py-12 px-3 sm:py-2 sm:px-3 text-center sm:text-left text-secondary-500 cursor-pointer"
+                <div class="py-12 px-3 sm:py-2 sm:px-3 text-center ltr:sm:text-left rtl:sm:text-right text-secondary-500 cursor-pointer"
                     x-show="displayOptions.length === 0"
                     x-on:click="close">
                     {{ $emptyMessage ?? __('wireui::messages.empty_options') }}

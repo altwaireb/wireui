@@ -13,7 +13,7 @@
         x-bind:type="type"
     >
         <x-slot name="append">
-            <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center">
+            <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 ltr:pr-2.5 rtl:pl-2.5 flex items-center">
                 <div x-on:click="toggle" class="text-gray-400 cursor-pointer">
                     <x-dynamic-component
                         x-show="!status"

@@ -1,6 +1,6 @@
 {
-    "name": "wireui/wireui",
-    "description": "TallStack components",
+    "name": "altwaireb/wireui",
+    "description": "TallStack UI components Support RTL",
     "type": "library",
     "keywords": [
         "livewire components",
@@ -29,6 +29,10 @@
         {
             "name": "Pedro Henrique",
             "email": "pedrolivertwd@gmail.com"
+        },
+        {
+            "name": "Abdulmageed Ali",
+            "email": "altwaireb@gmail.com"
         }
     ],
     "license": "MIT",

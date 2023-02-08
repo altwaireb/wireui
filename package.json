@@ -1,9 +1,9 @@
 {
     "name": "wireui",
     "version": "1.0.0",
-    "description": "TallStack components",
-    "repository": "git@github.com:wireui/wireui.git",
-    "author": "PH7-Jack <pedrolivertwd@gmail.com>",
+    "description": "TallStack UI components Support RTL",
+    "repository": "git@github.com:altwaireb/wireui.git",
+    "author": "Abdulmageed Ali <altwaireb@gmail.com>",
     "license": "MIT",
     "scripts": {
         "lint": "eslint . --ext .ts",

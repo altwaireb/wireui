@@ -7,7 +7,7 @@
         <x-dynamic-component
             :component="WireUi::component('icon')"
             :name="$icon"
-            class="w-5 h-5 mr-2"
+            class="w-5 h-5 ltr:mr-2 rtl:ml-2"
         />
     @endif
 

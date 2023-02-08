@@ -43,14 +43,14 @@
         x-bind:value="model ? getDisplayValue() : null">
         @if (!$readonly && !$disabled)
             <x-slot name="append">
-                <div class="absolute inset-y-0 right-3 z-5 flex items-center justify-center">
+                <div class="absolute inset-y-0 ltr:right-3 rtl:left-3 z-5 flex items-center justify-center">
                     <div class="flex items-center gap-x-2 my-auto
                         {{ $errors->has($name) ? 'text-negative-400 dark:text-negative-600' : 'text-secondary-400' }}">
 
                         @if ($clearable)
                             <x-dynamic-component
                                 :component="WireUi::component('icon')"
-                                class="cursor-pointer w-4 h-4 hover:text-negative-500 transition-colors ease-in-out duration-150"
+                                class="rtl:order-first cursor-pointer w-4 h-4 hover:text-negative-500 transition-colors ease-in-out duration-150"
                                 x-cloak
                                 name="x"
                                 x-show="model"
@@ -100,7 +100,7 @@
             <div class="flex items-center justify-between">
                 <x-dynamic-component
                     :component="WireUi::component('button')"
-                    class="rounded-lg shrink-0"
+                    class="rtl:rotate-180 rounded-lg shrink-0"
                     x-show="!monthsPicker"
                     x-on:click="previousMonth"
                     icon="chevron-left"
@@ -122,7 +122,7 @@
 
                 <x-dynamic-component
                     :component="WireUi::component('button')"
-                    class="rounded-lg shrink-0"
+                    class="rtl:rotate-180 rounded-lg shrink-0"
                     x-show="!monthsPicker"
                     x-on:click="nextMonth"
                     icon="chevron-right"

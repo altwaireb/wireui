@@ -14,7 +14,7 @@
         {{ $attributes->except(['class', 'wire:key'])->whereDoesntStartWith('wire:model') }}
         :component="WireUi::component('input')"
         x-model="{{ $colorNameAsValue ? 'selected.name' : 'selected.value' }}"
-        x-bind:class="{ 'pl-8': selected.value }"
+        x-bind:class="{ 'ltr:pl-8 rtl:pr-14': selected.value }"
         x-on:input="setColor($event.target.value)"
         x-ref="input"
         :label="$label"

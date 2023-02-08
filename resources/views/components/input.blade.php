@@ -53,7 +53,7 @@
             ]) }} />
 
         @if ($suffix || $rightIcon || ($hasError && !$append))
-            <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none
+            <div class="absolute inset-y-0 right-0 pr-2.5 rtl:order-first flex items-center pointer-events-none
                 {{ $hasError ? 'text-negative-500' : 'text-secondary-400' }}">
                 @if ($rightIcon)
                     <x-dynamic-component
